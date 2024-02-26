@@ -1,11 +1,13 @@
 package hu.ait.tictactoe
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import hu.ait.tictactoe.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,4 +18,28 @@ class MainActivity : AppCompatActivity() {
             binding.ticTacToeView.resetGame()
         }
     }
+
+    fun showMessage(msg: String) {
+        Snackbar.make(binding.root, msg, Snackbar.LENGTH_LONG).show()
+    }
+
+    fun startXTimer(){
+        binding.xChronometer.start()
+    }
+
+    fun startOTimer(){
+        binding.oChronometer.start()
+    }
+    fun stopXTimer(){
+        binding.xChronometer.stop()
+    }
+
+    fun stopOTimer(){
+        binding.oChronometer.stop()
+
+    }
+
+
+
+
 }
